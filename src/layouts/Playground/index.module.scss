@@ -1,0 +1,25 @@
+.playground {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boardWrapper {
+  position: relative;
+}
+
+.canvasBg {
+  position: relative;
+  left: -10px;
+  top: -10px;
+  border: 10px solid #000;
+  border-radius: 15px;
+}
+
+.canvasFg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
