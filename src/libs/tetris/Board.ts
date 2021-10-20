@@ -150,6 +150,33 @@ class Board {
     const { m } = this;
     return pos.every(([x, y]) => x >= 0 && x < BOARD_WIDTH && y >= 0 && y < BOARD_HEIGHT && !m[y][x]);
   }
+
+  tryBlockFit(pos: Position): Position | null {
+    /**
+     * .536.
+     * 91020
+     * .748.
+     */
+    const posOffset = [
+      [-1, 0],
+      [1, 0],
+      [0, -1],
+      [0, 1],
+      [-1, -1],
+      [1, -1],
+      [-1, 1],
+      [1, 1],
+      [-2, 0],
+      [2, 0],
+    ];
+    for (const [offsetX, offsetY] of posOffset) {
+      const newPos = pos.map(([x, y]) => [x + offsetX, y + offsetY]) as Position;
+      if (this.isBlockFit(newPos)) {
+        return newPos;
+      }
+    }
+    return null;
+  }
 }
 
 export default Board;
